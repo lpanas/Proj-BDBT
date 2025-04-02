@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+
+    <!-- Link do Bootstrapa -->
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .highlight {
+            color: #d0d536;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Page header -->
+    <h1>Edycja danych</h1>
+    <form action="#" th:action="@{/updateU}" th:object="${klient}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+        <!-- Table -->
+        <table class="table table-bordered">
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" th:field="*{nrklienta}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Imie:</td>
+                <td><input type="text" th:field="*{imie}" required></td>
+            </tr>
+            <tr>
+                <td>Nazwisko:</td>
+                <td><input type="text" th:field="*{nazwisko}" required></td>
+            </tr>
+            <tr>
+                <td>Nr telefonu:</td>
+                <td><input type="number" th:field="*{nrtelefonu}" required></td>
+            </tr>
+            <tr>
+                <td>Adres e-mail:</td>
+                <td><input type="text" th:field="*{email}" required></td>
+            </tr>
+            <tr>
+                <td>Login:</td>
+                <td><input type="text" th:field="*{login}" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td>Haslo:</td>
+                <td><input type="text" th:field="*{haslo}" required minlength="6"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="submit">Zapisz</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- Skrypty Bootstrap -->
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

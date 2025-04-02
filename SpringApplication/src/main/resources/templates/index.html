@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+    <style>
+        body {
+            background: url('images/zdj2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .text-container {
+            background: rgba(255, 255, 255, 0.8); /* Białe tło z 80% przezroczystości */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Delikatny cień dla lepszego efektu */
+        }
+
+        .text-container label {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333; /* Ciemny kolor dla kontrastu */
+        }
+
+        .text-container div {
+            font-size: 20px;
+            color: #555; /* Subtelny kontrast */
+        }
+    </style>
+</head>
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">PojazDZIK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/main}">Main</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/o-nas}">O Nas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/main}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/rej}">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mt-5">
+            <div class="text-container">
+                <label>Witamy na stronie internetowej salonu samochodowego PojazDZIK!</label>
+                <div>Jeśli chcesz się zobaczyć ofertę musisz się zalogować, aby przejść dalej naciśnij <a th:href="@{/main}"><b>tutaj</b></a>
+                    albo w górnym prawym rogu
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

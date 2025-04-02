@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Samochodowy PojazDZIK</title>
+    <style>
+        /* Ustawienia tła strony */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-image: url('images/zdj1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Kontener z tekstem */
+        .content {
+            background: rgba(0, 0, 0, 0.5); /* półprzezroczyste tło dla lepszej czytelności */
+            padding: 50px;
+            max-width: 800px;
+            margin: 100px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        strong {
+            color: #ffcc00;
+        }
+
+        /* Stylizacja dla linków */
+        a {
+            text-decoration: none;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Stylizacja przycisku Powrót */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+<!-- Przycisk Powrót -->
+<button class="back-button" onclick="window.history.back();">Powrót</button>
+
+<div class="content">
+    <h1>Witamy w salonie samochodowym PojazDZIK</h1>
+    <p>Salon samochodowy <strong>PojazDZIK</strong> to miejsce, gdzie pasja do motoryzacji spotyka się z profesjonalizmem. Oferujemy szeroką gamę samochodów nowych i używanych, idealnie dopasowanych do potrzeb każdego klienta. Nasi specjaliści służą pomocą na każdym etapie zakupu, od wyboru odpowiedniego modelu po finansowanie i serwis.</p>
+    <p>W <strong>PojazDZIK</strong> dbamy o to, aby każdy klient czuł się wyjątkowo i zadowolony ze swojego wyboru. Zapraszamy do odwiedzenia naszego salonu i doświadczenia wyjątkowej obsługi oraz jakości samochodów.</p>
+</div>
+</body>
+</html>

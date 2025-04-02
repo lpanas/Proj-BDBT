@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Salon Samochodowy Aplikacja</title>
+
+  <!-- Link do Bootstrapa -->
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .btn-secondary {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background-color: #45a049;
+    }
+
+    .btn-order {
+      background-color: #4CAF50;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn-order:hover {
+      background-color: #45a049;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Page header -->
+  <div class="d-flex justify-content-between w-100 mt-4">
+    <h1>Klienci</h1>
+    <!-- Przycisk "Powrót" w prawym górnym rogu -->
+    <a href="/main_admin" class="btn btn-secondary">Powrót</a>
+  </div>
+
+  <!-- Table -->
+  <br/><br/>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Imie</th>
+      <th>Nazwisko</th>
+      <th>Nr telefonu</th>
+      <th>E-mail</th>
+      <th>Login</th>
+      <th>Hasło</th>
+      <th>Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Thymeleaf iteration -->
+    <tr th:each="klient : ${listklienci}">
+      <td th:text="${klient.nrklienta}"></td>
+      <td th:text="${klient.imie}"></td>
+      <td th:text="${klient.nazwisko}"></td>
+      <td th:text="${klient.nrtelefonu}"></td>
+      <td th:text="${klient.email}"></td>
+      <td th:text="${klient.login}"></td>
+      <td th:text="${klient.haslo}"></td>
+
+      <td>
+        <!-- Przycisk Edytuj -->
+        <a th:href="@{/editK/{nrklienta}(nrklienta=${klient.nrklienta})}" class="btn btn-primary btn-sm">Edytuj</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- Przycisk Usuń z potwierdzeniem -->
+        <a th:href="@{'/deleteK/'+${klient.nrklienta}}" class="btn btn-danger btn-sm"
+           onclick="return confirm('Czy na pewno chcesz usunąć tego klienta?');">Usuń</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Skrypty Bootstrap -->
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

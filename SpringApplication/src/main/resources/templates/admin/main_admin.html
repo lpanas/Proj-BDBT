@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Main Admin Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+    <style>
+        body {
+            background: url('images/zdj5.jpg') no-repeat center center fixed;
+            background-size: contain;
+        }
+
+        .logout-button {
+            border: 2px solid red;
+            color: red;
+            padding: 5px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .logout-button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .transparent-bg {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .welcome-text {
+            font-size: 30px;
+            color: #343a40;
+            text-align: center;
+        }
+
+        .highlight-user {
+            color: #d0d536;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+
+        .additional-info {
+            font-size: 20px;
+            color: #555;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">PojazDZIK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/pojazdy}">Pojazdy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/klient_wszyscy}">Klienci</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/zamowienia_wszystkie}">Zamowienia</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Main
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+
+                <!-- Logout Button next to "Main" -->
+                <li class="nav-item">
+                    <a class="nav-link logout-button" th:if="${#httpServletRequest.remoteUser != null}" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
+                        Logout
+                    </a>
+                    <form id="logoutForm" method="post" th:action="@{/logout}" style="display:none;"></form>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="transparent-bg">
+                <!-- Powitanie -->
+                <div class="welcome-text">
+                    Witamy, <span class="highlight-user">[[${#httpServletRequest.remoteUser}]]</span>!
+                </div>
+                <div class="additional-info">
+                    Jest nam niezmiernie miło gościć Cię w największym salonie samochodowym w Europie.
+                </div>
+
+                <!-- Formularz wylogowania -->
+                <form method="post" th:action="@{/logout}" class="text-center mt-4">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

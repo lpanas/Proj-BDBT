@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Błąd Zamówienia</title>
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+  <h1>Błąd</h1>
+  <div class="alert alert-danger">
+    <strong>Uwaga!</strong> Już zamówiłeś ten pojazd. Nie możesz złożyć tego samego zamówienia ponownie.
+  </div>
+  <a href="/pojazdyU" class="btn btn-primary">Powrót do oferty</a>
+</div>
+</body>
+</html>
